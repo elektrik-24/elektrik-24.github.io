@@ -1,0 +1,146 @@
+@import 'mixins'
+
+header
+    width: 100%
+    max-height: 120px
+    background-color: #0c2a8b
+    position: fixed
+    z-index: 100
+
+    nav.nav_desktop
+        @media screen and ( min-width: 750px )
+            display: grid
+            grid-template-columns: 2.4fr repeat(6, 1fr)
+            padding: 25px 20px 25px 20px
+            align-items: center
+            font-size: 20px
+            box-shadow: 0 5px 50px black
+        @media screen and ( max-width: 749px )
+            display: none
+
+        img
+            margin: auto
+            max-width: 50px
+            width: 100%
+
+        a
+            font-size: calc(0.8em + 0.5vw)
+            &:hover
+                transition: .6s
+                font-size: calc(0.8em + 0.51vw)
+                color: #ffd900
+        div:nth-child(7)
+            a
+                font-size: calc(0.5em + 0.3vw)
+                color: #ffd900
+                &:hover
+                    transition: .6s
+                    font-size: calc(0.5em + 0.31vw)
+                    color: #f0ec03
+    nav.nav_phone
+        @media screen and ( min-width: 750px )
+            display: none
+
+        .img
+            text-align: center
+
+            img
+                max-width: 50px
+                width: 100%
+
+        a
+            font-size: calc(1.2em + 0.6vw)
+
+#menu__toggle
+    opacity: 0
+
+    &:checked ~ .menu__btn
+        > span
+            transform: rotate(45deg)
+            z-index: 101
+
+            &::before
+                top: 0
+                transform: rotate(0)
+                
+
+            &::after
+                top: 0
+                transform: rotate(90deg)
+                
+
+    &:checked ~ .menu__box
+        visibility: visible
+        left: 0
+
+.menu__btn
+    display: flex
+    align-items: center
+    position: absolute
+    top: 20px
+    left: 20px
+    width: 26px
+    height: 26px
+    cursor: pointer
+    z-index: 101
+
+    > span
+        +menu_btn
+
+    > span::before
+        +menu_btn
+            content: ''
+            top: -8px
+
+    > span::after
+        +menu_btn
+            content: ''
+            top: 8px
+
+.menu__box
+    display: block
+    position: fixed
+    visibility: hidden
+    background: $blue-color
+    top: 0
+    left: -100%
+    width: 100%
+    height: auto
+    margin: 0
+    padding: 80px 0
+    box-shadow: 1px 0px 6px rgba(0, 0, 0, .2)
+    border-radius: 0px 0px 50px 0px
+    transition-duration: .25s
+    opacity: .9999
+    z-index: 100
+
+    .menu__item
+        display: block
+        padding: 12px 24px
+        font-size: 20px
+        text-decoration: none
+        transition-duration: .25s
+
+        &:hover
+            background: #17044d
+        &:nth-child(6)
+            a
+                font-size: 18px
+                color: #ffd900
+
+svg.desktop
+    @media screen and ( min-width: 750px )
+        margin-bottom: -85px
+        height: 12vh
+        max-height: 100px
+    @media screen and ( max-width: 749px )
+        display: none
+
+svg.phone
+    @media screen and ( min-width: 750px )
+        display: none
+
+svg.phone
+        margin-bottom: -45px
+        height: 12vh
+        max-height: 50px
