@@ -9,10 +9,25 @@ footer
     .info
         display: grid
         grid-template-columns: 1fr 1fr
+        @media screen and ( max-width: 729px )
+            grid-template-columns: 1fr
         .map
             border-radius: 2px
             max-width: 600px
+            margin-left: auto
+            margin-right: 50px
+            @media screen and ( max-width: 899px )
+                margin-right: auto
             iframe
                 padding: 10px
         .address
-        
+            margin-left: 50px
+            padding: 20px 5px 5px 5px
+            @media screen and ( max-width: 899px )
+                margin-left: auto
+                margin-right: auto
+            p
+                padding-top: 10px
+                padding-left: 20px
+                @media screen and ( max-width: 300px )
+                    padding-left: none
